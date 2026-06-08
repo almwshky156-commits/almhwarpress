@@ -34,7 +34,10 @@ export const Route = createFileRoute("/article/$slug")({
       <SiteHeader />
       <main className="flex-1 container mx-auto px-4 py-20 text-center">
         <h1 className="text-3xl font-black mb-2">المقال غير موجود</h1>
-        <Link to="/" className="inline-block bg-primary text-primary-foreground px-6 py-2 rounded font-bold mt-4">
+        <Link
+          to="/"
+          className="inline-block bg-primary text-primary-foreground px-6 py-2 rounded font-bold mt-4"
+        >
           الرئيسية
         </Link>
       </main>
@@ -75,7 +78,10 @@ function ArticlePage() {
         <SiteHeader />
         <main className="flex-1 container mx-auto px-4 py-20 text-center">
           <h1 className="text-3xl font-black mb-2">المقال غير موجود</h1>
-          <Link to="/" className="inline-block bg-primary text-primary-foreground px-6 py-2 rounded font-bold mt-4">
+          <Link
+            to="/"
+            className="inline-block bg-primary text-primary-foreground px-6 py-2 rounded font-bold mt-4"
+          >
             الرئيسية
           </Link>
         </main>

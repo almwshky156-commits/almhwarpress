@@ -24,7 +24,9 @@ export function ArticleEditor({ initial, mode }: Props) {
   const [excerpt, setExcerpt] = useState(initial?.excerpt ?? "");
   const [content, setContent] = useState(initial?.content ?? "");
   const [author, setAuthor] = useState(initial?.author ?? "هيئة التحرير");
-  const [category, setCategory] = useState(initial?.category ?? categories[0].slug);
+  const [category, setCategory] = useState(
+    initial?.category ?? categories[0].slug,
+  );
   const [imageUrl, setImageUrl] = useState(initial?.image_url ?? "");
   const [featured, setFeatured] = useState(initial?.featured ?? false);
   const [published, setPublished] = useState(initial?.published ?? true);
@@ -216,7 +218,13 @@ export function ArticleEditor({ initial, mode }: Props) {
   );
 }
 
-function Field({ label, children }: { label: string; children: React.ReactNode }) {
+function Field({
+  label,
+  children,
+}: {
+  label: string;
+  children: React.ReactNode;
+}) {
   return (
     <label className="block">
       <span className="block text-sm font-bold mb-1">{label}</span>

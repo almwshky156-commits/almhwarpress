@@ -13,7 +13,10 @@ export const Route = createFileRoute("/login")({
   head: () => ({
     meta: [
       { title: "تسجيل الدخول | المحور برس" },
-      { name: "description", content: "تسجيل دخول مدراء وكتّاب موقع المحور برس." },
+      {
+        name: "description",
+        content: "تسجيل دخول مدراء وكتّاب موقع المحور برس.",
+      },
       { name: "robots", content: "noindex,nofollow" },
     ],
   }),
@@ -21,8 +24,15 @@ export const Route = createFileRoute("/login")({
 });
 
 const loginSchema = z.object({
-  email: z.string().trim().email({ message: "بريد إلكتروني غير صالح" }).max(255),
-  password: z.string().min(8, { message: "كلمة المرور يجب ألا تقل عن 8 أحرف" }).max(128),
+  email: z
+    .string()
+    .trim()
+    .email({ message: "بريد إلكتروني غير صالح" })
+    .max(255),
+  password: z
+    .string()
+    .min(8, { message: "كلمة المرور يجب ألا تقل عن 8 أحرف" })
+    .max(128),
 });
 
 function LoginPage() {
@@ -143,7 +153,8 @@ function LoginPage() {
                 />
                 {setupMode && (
                   <p className="text-xs text-muted-foreground">
-                    اختر كلمة مرور قوية. تُشفّر كلمات المرور بالكامل ولا يمكن استرجاعها.
+                    اختر كلمة مرور قوية. تُشفّر كلمات المرور بالكامل ولا يمكن
+                    استرجاعها.
                   </p>
                 )}
               </div>
@@ -160,7 +171,9 @@ function LoginPage() {
           )}
 
           <div className="mt-6 text-center text-xs text-muted-foreground">
-            <Link to="/" className="hover:text-primary">العودة إلى الموقع</Link>
+            <Link to="/" className="hover:text-primary">
+              العودة إلى الموقع
+            </Link>
           </div>
         </div>
       </main>

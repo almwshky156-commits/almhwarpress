@@ -2,7 +2,13 @@ import { Link } from "@tanstack/react-router";
 import { Clock } from "lucide-react";
 import { type Article, formatDate, getCategory } from "@/lib/news-data";
 
-export function ArticleCard({ article, variant = "default" }: { article: Article; variant?: "default" | "compact" | "horizontal" }) {
+export function ArticleCard({
+  article,
+  variant = "default",
+}: {
+  article: Article;
+  variant?: "default" | "compact" | "horizontal";
+}) {
   const cat = getCategory(article.category);
 
   if (variant === "horizontal") {
@@ -46,7 +52,9 @@ export function ArticleCard({ article, variant = "default" }: { article: Article
         <h3 className="text-sm font-bold leading-snug group-hover:text-primary transition line-clamp-2">
           {article.title}
         </h3>
-        <div className="mt-1 text-xs text-muted-foreground">{formatDate(article.date)}</div>
+        <div className="mt-1 text-xs text-muted-foreground">
+          {formatDate(article.date)}
+        </div>
       </Link>
     );
   }
@@ -72,7 +80,9 @@ export function ArticleCard({ article, variant = "default" }: { article: Article
         <h3 className="font-bold text-base sm:text-lg leading-snug group-hover:text-primary transition line-clamp-3">
           {article.title}
         </h3>
-        <p className="text-sm text-muted-foreground line-clamp-2">{article.excerpt}</p>
+        <p className="text-sm text-muted-foreground line-clamp-2">
+          {article.excerpt}
+        </p>
         <div className="mt-auto pt-2 flex items-center justify-between text-xs text-muted-foreground">
           <span>{article.author}</span>
           <span className="flex items-center gap-1">

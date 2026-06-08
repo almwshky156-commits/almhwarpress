@@ -2,7 +2,10 @@ import { Link } from "@tanstack/react-router";
 import { Menu, Search, X } from "lucide-react";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { categories, breakingNews as fallbackBreakingNews } from "@/lib/news-data";
+import {
+  categories,
+  breakingNews as fallbackBreakingNews,
+} from "@/lib/news-data";
 import { fetchActiveBreakingNews } from "@/lib/breaking-news-db";
 
 export function SiteHeader() {
@@ -28,7 +31,9 @@ export function SiteHeader() {
       <div className="bg-foreground text-background text-xs">
         <div className="container mx-auto flex items-center justify-between px-4 py-2">
           <span className="opacity-80">{today}</span>
-          <span className="opacity-80 hidden sm:inline">شبكة المحور برس الإخبارية</span>
+          <span className="opacity-80 hidden sm:inline">
+            شبكة المحور برس الإخبارية
+          </span>
         </div>
       </div>
 
@@ -42,7 +47,9 @@ export function SiteHeader() {
             <h1 className="text-2xl sm:text-3xl font-black text-gradient-primary leading-none">
               المحور برس
             </h1>
-            <p className="text-xs text-muted-foreground mt-1">صوتك في قلب الحدث</p>
+            <p className="text-xs text-muted-foreground mt-1">
+              صوتك في قلب الحدث
+            </p>
           </div>
         </Link>
 

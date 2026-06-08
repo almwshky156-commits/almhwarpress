@@ -88,8 +88,17 @@
   --ring: oklch(0.45 0.18 25);
   --breaking: oklch(0.5 0.22 25);
   --breaking-foreground: oklch(0.99 0.005 60);
-  --gradient-hero: linear-gradient(135deg, oklch(0.25 0.05 25) 0%, oklch(0.45 0.18 25) 100%);
-  --gradient-overlay: linear-gradient(to top, oklch(0.1 0.02 30 / 0.95) 0%, oklch(0.1 0.02 30 / 0.4) 50%, transparent 100%);
+  --gradient-hero: linear-gradient(
+    135deg,
+    oklch(0.25 0.05 25) 0%,
+    oklch(0.45 0.18 25) 100%
+  );
+  --gradient-overlay: linear-gradient(
+    to top,
+    oklch(0.1 0.02 30 / 0.95) 0%,
+    oklch(0.1 0.02 30 / 0.4) 50%,
+    transparent 100%
+  );
   --shadow-card: 0 4px 12px -2px oklch(0.2 0.05 30 / 0.08);
   --shadow-elevated: 0 12px 32px -8px oklch(0.2 0.05 30 / 0.18);
   --chart-1: oklch(0.646 0.222 41.116);
@@ -154,7 +163,10 @@
     direction: rtl;
   }
 
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-weight: 700;
     letter-spacing: -0.01em;
   }
@@ -167,10 +179,18 @@
     background-clip: text;
     color: transparent;
   }
-  .bg-gradient-hero { background: var(--gradient-hero); }
-  .bg-gradient-overlay { background: var(--gradient-overlay); }
-  .shadow-card { box-shadow: var(--shadow-card); }
-  .shadow-elevated { box-shadow: var(--shadow-elevated); }
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+  .bg-gradient-overlay {
+    background: var(--gradient-overlay);
+  }
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
 
   .ticker {
     display: inline-flex;
@@ -178,7 +198,11 @@
     white-space: nowrap;
   }
   @keyframes ticker-scroll {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
   }
 }

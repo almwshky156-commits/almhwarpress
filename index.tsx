@@ -18,9 +18,16 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "المحور برس | الرئيسية" },
-      { name: "description", content: "الصفحة الرئيسية لشبكة المحور برس - أحدث الأخبار، المقالات، والتحليلات." },
+      {
+        name: "description",
+        content:
+          "الصفحة الرئيسية لشبكة المحور برس - أحدث الأخبار، المقالات، والتحليلات.",
+      },
       { property: "og:title", content: "المحور برس | الرئيسية" },
-      { property: "og:description", content: "أحدث الأخبار والتحليلات من شبكة المحور برس." },
+      {
+        property: "og:description",
+        content: "أحدث الأخبار والتحليلات من شبكة المحور برس.",
+      },
     ],
   }),
   component: HomePage,
@@ -35,7 +42,8 @@ function HomePage() {
     queryKey: ["firestore", "articles"],
     queryFn: fetchFirestoreArticles,
   });
-  const articles = dbArticles && dbArticles.length > 0 ? dbArticles : staticArticles;
+  const articles =
+    dbArticles && dbArticles.length > 0 ? dbArticles : staticArticles;
   const featured = articles.find((a) => a.featured) ?? articles[0];
   const latest = [...articles]
     .sort((a, b) => b.date.localeCompare(a.date))
@@ -98,7 +106,9 @@ function HomePage() {
             </Link>
 
             <aside className="flex flex-col gap-3">
-              <h3 className="text-lg font-black border-r-4 border-primary pr-3">آخر الأخبار</h3>
+              <h3 className="text-lg font-black border-r-4 border-primary pr-3">
+                آخر الأخبار
+              </h3>
               <div className="flex flex-col gap-3">
                 {latest.map((a) => (
                   <ArticleCard key={a.slug} article={a} variant="horizontal" />
@@ -114,7 +124,10 @@ function HomePage() {
           if (items.length === 0) return null;
           const [first, ...rest] = items;
           return (
-            <section key={cat.slug} className="container mx-auto px-4 py-8 border-t border-border">
+            <section
+              key={cat.slug}
+              className="container mx-auto px-4 py-8 border-t border-border"
+            >
               <div className="flex items-end justify-between mb-6">
                 <h2 className="text-2xl font-black border-r-4 border-primary pr-3">
                   {cat.name}
@@ -180,7 +193,9 @@ function HomePage() {
                     </div>
                   )}
                   <div className="p-4">
-                    <h3 className="font-bold text-base line-clamp-2 mb-2">{a.title}</h3>
+                    <h3 className="font-bold text-base line-clamp-2 mb-2">
+                      {a.title}
+                    </h3>
                     <p className="text-xs text-muted-foreground line-clamp-3">
                       {a.content}
                     </p>

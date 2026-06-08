@@ -146,7 +146,11 @@ function BreakingNewsAdmin() {
               disabled={adding || !newText.trim()}
               className="bg-primary text-primary-foreground rounded-md px-5 py-2 font-bold disabled:opacity-60 flex items-center justify-center gap-2"
             >
-              {adding ? <Loader2 className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" />}
+              {adding ? (
+                <Loader2 className="h-4 w-4 animate-spin" />
+              ) : (
+                <Plus className="h-4 w-4" />
+              )}
               إضافة
             </button>
           </div>
