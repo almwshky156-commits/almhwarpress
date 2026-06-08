@@ -54,7 +54,9 @@ export async function fetchAllArticlesAdmin(): Promise<DbArticle[]> {
   return data as DbArticle[];
 }
 
-export async function fetchArticleBySlug(slug: string): Promise<Article | null> {
+export async function fetchArticleBySlug(
+  slug: string,
+): Promise<Article | null> {
   const { data, error } = await supabase
     .from("articles")
     .select("*")

@@ -1,4 +1,11 @@
-import { collection, getDocs, query, where, orderBy, type Timestamp } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  query,
+  where,
+  orderBy,
+  type Timestamp,
+} from "firebase/firestore";
 import { getDb } from "@/integrations/firebase/client";
 
 export interface FirestoreArticle {
@@ -44,7 +51,10 @@ export async function fetchFirestoreArticles(): Promise<FirestoreArticle[]> {
     });
   } catch (err) {
     // Fallback without composite-index requirements
-    console.warn("Firestore articles query failed, retrying without filters", err);
+    console.warn(
+      "Firestore articles query failed, retrying without filters",
+      err,
+    );
     try {
       const snap = await getDocs(collection(db, "articles"));
       return snap.docs

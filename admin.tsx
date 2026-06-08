@@ -68,7 +68,9 @@ function AdminPage() {
         <main className="flex-1 container mx-auto px-4 py-20 text-center">
           <ShieldCheck className="h-12 w-12 text-muted-foreground mx-auto mb-3" />
           <h1 className="text-2xl font-black mb-2">لا تملك صلاحية الوصول</h1>
-          <p className="text-muted-foreground mb-6">هذه الصفحة مخصصة للمدراء فقط.</p>
+          <p className="text-muted-foreground mb-6">
+            هذه الصفحة مخصصة للمدراء فقط.
+          </p>
           <button
             onClick={async () => {
               await signOut();
@@ -109,7 +111,8 @@ function AdminPage() {
               لوحة التحكم
             </h1>
             <p className="text-sm text-muted-foreground mt-1">
-              مرحباً، <span className="font-bold text-foreground">{user.email}</span>
+              مرحباً،{" "}
+              <span className="font-bold text-foreground">{user.email}</span>
             </p>
           </div>
           <button
@@ -126,7 +129,11 @@ function AdminPage() {
 
         <div className="grid gap-4 sm:grid-cols-3 mb-8">
           <StatCard icon={Newspaper} label="المقالات" value={articles.length} />
-          <StatCard icon={FolderTree} label="الأقسام" value={categories.length} />
+          <StatCard
+            icon={FolderTree}
+            label="الأقسام"
+            value={categories.length}
+          />
           <StatCard icon={ShieldCheck} label="المدراء" value={1} />
         </div>
 
@@ -135,7 +142,8 @@ function AdminPage() {
             to="/admin/breaking"
             className="flex items-center gap-2 bg-card border border-border rounded-md px-4 py-3 font-bold text-sm hover:bg-secondary transition"
           >
-            <Megaphone className="h-4 w-4 text-primary" /> إدارة شريط الأخبار العاجلة
+            <Megaphone className="h-4 w-4 text-primary" /> إدارة شريط الأخبار
+            العاجلة
           </Link>
         </div>
 
@@ -158,71 +166,75 @@ function AdminPage() {
               لا توجد مقالات بعد. اضغط "إضافة مقال" لبدء النشر.
             </div>
           ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead className="text-right text-xs text-muted-foreground border-b border-border">
-                <tr>
-                  <th className="py-2 px-2 font-bold">العنوان</th>
-                  <th className="py-2 px-2 font-bold">القسم</th>
-                  <th className="py-2 px-2 font-bold">الحالة</th>
-                  <th className="py-2 px-2 font-bold">التاريخ</th>
-                  <th className="py-2 px-2 font-bold">إجراءات</th>
-                </tr>
-              </thead>
-              <tbody>
-                {articles.map((a) => (
-                  <tr key={a.id} className="border-b border-border/50">
-                    <td className="py-2 px-2">
-                      <Link to="/article/$slug" params={{ slug: a.slug }} className="hover:text-primary font-semibold">
-                        {a.title}
-                      </Link>
-                    </td>
-                    <td className="py-2 px-2 text-muted-foreground">
-                      {categories.find((c) => c.slug === a.category)?.name}
-                    </td>
-                    <td className="py-2 px-2">
-                      {a.published ? (
-                        <span className="inline-flex items-center gap-1 text-xs text-green-700 dark:text-green-400">
-                          <Eye className="h-3 w-3" /> منشور
-                        </span>
-                      ) : (
-                        <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
-                          <EyeOff className="h-3 w-3" /> مسودة
-                        </span>
-                      )}
-                    </td>
-                    <td className="py-2 px-2 text-muted-foreground text-xs">
-                      {new Date(a.published_at).toLocaleDateString("ar-EG")}
-                    </td>
-                    <td className="py-2 px-2">
-                      <div className="flex items-center gap-1">
-                        <Link
-                          to="/admin/edit/$id"
-                          params={{ id: a.id }}
-                          className="p-2 hover:bg-secondary rounded"
-                          title="تعديل"
-                        >
-                          <Pencil className="h-4 w-4" />
-                        </Link>
-                        <button
-                          onClick={() => handleDelete(a)}
-                          disabled={deleting === a.id}
-                          className="p-2 hover:bg-destructive/10 hover:text-destructive rounded disabled:opacity-50"
-                          title="حذف"
-                        >
-                          {deleting === a.id ? (
-                            <Loader2 className="h-4 w-4 animate-spin" />
-                          ) : (
-                            <Trash2 className="h-4 w-4" />
-                          )}
-                        </button>
-                      </div>
-                    </td>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="text-right text-xs text-muted-foreground border-b border-border">
+                  <tr>
+                    <th className="py-2 px-2 font-bold">العنوان</th>
+                    <th className="py-2 px-2 font-bold">القسم</th>
+                    <th className="py-2 px-2 font-bold">الحالة</th>
+                    <th className="py-2 px-2 font-bold">التاريخ</th>
+                    <th className="py-2 px-2 font-bold">إجراءات</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody>
+                  {articles.map((a) => (
+                    <tr key={a.id} className="border-b border-border/50">
+                      <td className="py-2 px-2">
+                        <Link
+                          to="/article/$slug"
+                          params={{ slug: a.slug }}
+                          className="hover:text-primary font-semibold"
+                        >
+                          {a.title}
+                        </Link>
+                      </td>
+                      <td className="py-2 px-2 text-muted-foreground">
+                        {categories.find((c) => c.slug === a.category)?.name}
+                      </td>
+                      <td className="py-2 px-2">
+                        {a.published ? (
+                          <span className="inline-flex items-center gap-1 text-xs text-green-700 dark:text-green-400">
+                            <Eye className="h-3 w-3" /> منشور
+                          </span>
+                        ) : (
+                          <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
+                            <EyeOff className="h-3 w-3" /> مسودة
+                          </span>
+                        )}
+                      </td>
+                      <td className="py-2 px-2 text-muted-foreground text-xs">
+                        {new Date(a.published_at).toLocaleDateString("ar-EG")}
+                      </td>
+                      <td className="py-2 px-2">
+                        <div className="flex items-center gap-1">
+                          <Link
+                            to="/admin/edit/$id"
+                            params={{ id: a.id }}
+                            className="p-2 hover:bg-secondary rounded"
+                            title="تعديل"
+                          >
+                            <Pencil className="h-4 w-4" />
+                          </Link>
+                          <button
+                            onClick={() => handleDelete(a)}
+                            disabled={deleting === a.id}
+                            className="p-2 hover:bg-destructive/10 hover:text-destructive rounded disabled:opacity-50"
+                            title="حذف"
+                          >
+                            {deleting === a.id ? (
+                              <Loader2 className="h-4 w-4 animate-spin" />
+                            ) : (
+                              <Trash2 className="h-4 w-4" />
+                            )}
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           )}
         </section>
       </main>

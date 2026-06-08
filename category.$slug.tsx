@@ -20,8 +20,14 @@ export const Route = createFileRoute("/category/$slug")({
     meta: [
       { title: `${loaderData?.cat.name ?? "قسم"} | المحور برس` },
       { name: "description", content: loaderData?.cat.description ?? "" },
-      { property: "og:title", content: `${loaderData?.cat.name ?? ""} | المحور برس` },
-      { property: "og:description", content: loaderData?.cat.description ?? "" },
+      {
+        property: "og:title",
+        content: `${loaderData?.cat.name ?? ""} | المحور برس`,
+      },
+      {
+        property: "og:description",
+        content: loaderData?.cat.description ?? "",
+      },
     ],
   }),
   notFoundComponent: () => (
@@ -29,8 +35,13 @@ export const Route = createFileRoute("/category/$slug")({
       <SiteHeader />
       <main className="flex-1 container mx-auto px-4 py-20 text-center">
         <h1 className="text-3xl font-black mb-2">القسم غير موجود</h1>
-        <p className="text-muted-foreground mb-6">تأكد من الرابط أو عد إلى الصفحة الرئيسية.</p>
-        <Link to="/" className="inline-block bg-primary text-primary-foreground px-6 py-2 rounded font-bold">
+        <p className="text-muted-foreground mb-6">
+          تأكد من الرابط أو عد إلى الصفحة الرئيسية.
+        </p>
+        <Link
+          to="/"
+          className="inline-block bg-primary text-primary-foreground px-6 py-2 rounded font-bold"
+        >
           الرئيسية
         </Link>
       </main>
@@ -52,7 +63,8 @@ function CategoryPage() {
     queryKey: ["articles", "published"],
     queryFn: fetchPublishedArticles,
   });
-  const source = dbArticles && dbArticles.length > 0 ? dbArticles : staticArticles;
+  const source =
+    dbArticles && dbArticles.length > 0 ? dbArticles : staticArticles;
   const items = source.filter((a) => a.category === (slug as CategorySlug));
 
   return (
@@ -67,7 +79,9 @@ function CategoryPage() {
         </section>
         <section className="container mx-auto px-4 py-10">
           {items.length === 0 ? (
-            <p className="text-center text-muted-foreground py-20">لا توجد مقالات حالياً في هذا القسم.</p>
+            <p className="text-center text-muted-foreground py-20">
+              لا توجد مقالات حالياً في هذا القسم.
+            </p>
           ) : (
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {items.map((a) => (

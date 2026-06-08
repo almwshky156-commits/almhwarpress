@@ -25,17 +25,24 @@ export const bootstrapAdmin = createServerFn({ method: "POST" })
       return { ok: false as const, error: countErr.message };
     }
     if ((count ?? 0) > 0) {
-      return { ok: false as const, error: "تم إنشاء المدير سابقاً. استخدم صفحة تسجيل الدخول." };
+      return {
+        ok: false as const,
+        error: "تم إنشاء المدير سابقاً. استخدم صفحة تسجيل الدخول.",
+      };
     }
 
     // Create the auth user (auto-confirm is enabled globally)
-    const { data: created, error: createErr } = await supabaseAdmin.auth.admin.createUser({
-      email: data.email,
-      password: data.password,
-      email_confirm: true,
-    });
+    const { data: created, error: createErr } =
+      await supabaseAdmin.auth.admin.createUser({
+        email: data.email,
+        password: data.password,
+        email_confirm: true,
+      });
     if (createErr || !created.user) {
-      return { ok: false as const, error: createErr?.message ?? "تعذّر إنشاء المستخدم" };
+      return {
+        ok: false as const,
+        error: createErr?.message ?? "تعذّر إنشاء المستخدم",
+      };
     }
 
     // Grant admin role
@@ -53,11 +60,13 @@ export const bootstrapAdmin = createServerFn({ method: "POST" })
   });
 
 /** Reports whether an admin exists (used by setup page) */
-export const adminExists = createServerFn({ method: "GET" }).handler(async () => {
-  const { count, error } = await supabaseAdmin
-    .from("user_roles")
-    .select("*", { count: "exact", head: true })
-    .eq("role", "admin");
-  if (error) return { exists: false, error: error.message };
-  return { exists: (count ?? 0) > 0 };
-});
+export const adminExists = createServerFn({ method: "GET" }).handler(
+  async () => {
+    const { count, error } = await supabaseAdmin
+      .from("user_roles")
+      .select("*", { count: "exact", head: true })
+      .eq("role", "admin");
+    if (error) return { exists: false, error: error.message };
+    return { exists: (count ?? 0) > 0 };
+  },
+);

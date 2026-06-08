@@ -27,15 +27,51 @@ export interface Category {
 }
 
 export const categories: Category[] = [
-  { slug: "news", name: "الأخبار", description: "آخر الأخبار المحلية والدولية على مدار الساعة" },
-  { slug: "opinion", name: "الرأي والمقالات", description: "تحليلات ومقالات رأي من نخبة من الكتّاب" },
-  { slug: "quran", name: "الثقافة القرآنية", description: "محتوى يربط الواقع بالقيم القرآنية والنبوية" },
-  { slug: "press", name: "الصحافة", description: "متابعات صحفية وتقارير ميدانية" },
-  { slug: "conferences", name: "المؤتمرات الدولية", description: "تغطيات حية للمؤتمرات الإقليمية والدولية" },
-  { slug: "programs", name: "البرامج الإعلامية", description: "أبرز البرامج الحوارية والوثائقية" },
-  { slug: "resistance", name: "المحتوى المقاوم", description: "متابعة قضايا المقاومة والتحرر" },
-  { slug: "social", name: "السوشيال ميديا", description: "النشر الرقمي ومتابعة منصات التواصل" },
-  { slug: "multimedia", name: "الملتيميديا", description: "فيديوهات وإنفوجرافيك ومحتوى مرئي" },
+  {
+    slug: "news",
+    name: "الأخبار",
+    description: "آخر الأخبار المحلية والدولية على مدار الساعة",
+  },
+  {
+    slug: "opinion",
+    name: "الرأي والمقالات",
+    description: "تحليلات ومقالات رأي من نخبة من الكتّاب",
+  },
+  {
+    slug: "quran",
+    name: "الثقافة القرآنية",
+    description: "محتوى يربط الواقع بالقيم القرآنية والنبوية",
+  },
+  {
+    slug: "press",
+    name: "الصحافة",
+    description: "متابعات صحفية وتقارير ميدانية",
+  },
+  {
+    slug: "conferences",
+    name: "المؤتمرات الدولية",
+    description: "تغطيات حية للمؤتمرات الإقليمية والدولية",
+  },
+  {
+    slug: "programs",
+    name: "البرامج الإعلامية",
+    description: "أبرز البرامج الحوارية والوثائقية",
+  },
+  {
+    slug: "resistance",
+    name: "المحتوى المقاوم",
+    description: "متابعة قضايا المقاومة والتحرر",
+  },
+  {
+    slug: "social",
+    name: "السوشيال ميديا",
+    description: "النشر الرقمي ومتابعة منصات التواصل",
+  },
+  {
+    slug: "multimedia",
+    name: "الملتيميديا",
+    description: "فيديوهات وإنفوجرافيك ومحتوى مرئي",
+  },
 ];
 
 export interface Article {
@@ -101,7 +137,8 @@ export const articles: Article[] = [
   {
     slug: "international-conference",
     title: "مؤتمر دولي يناقش مستقبل الأمن الإقليمي والتعاون متعدد الأطراف",
-    excerpt: "ينعقد المؤتمر الدولي بمشاركة عشرات الدول لبحث ملفات الأمن والتنمية والشراكات الاستراتيجية.",
+    excerpt:
+      "ينعقد المؤتمر الدولي بمشاركة عشرات الدول لبحث ملفات الأمن والتنمية والشراكات الاستراتيجية.",
     body: longBody("مؤتمر دولي"),
     image: newsConference,
     category: "conferences",
@@ -112,7 +149,8 @@ export const articles: Article[] = [
   {
     slug: "opinion-media-future",
     title: "مقال رأي: الإعلام الرقمي ومستقبل صناعة الخبر في المنطقة",
-    excerpt: "قراءة في التحولات التي يفرضها الإعلام الرقمي على المؤسسات التقليدية وأدوات صناعة الخبر.",
+    excerpt:
+      "قراءة في التحولات التي يفرضها الإعلام الرقمي على المؤسسات التقليدية وأدوات صناعة الخبر.",
     body: longBody("الإعلام الرقمي"),
     image: newsOpinion,
     category: "opinion",
@@ -123,7 +161,8 @@ export const articles: Article[] = [
   {
     slug: "quran-contemporary-readings",
     title: "قراءات معاصرة في الهدي القرآني وأثرها في بناء الوعي",
-    excerpt: "ندوة فكرية تناقش حضور القيم القرآنية في معالجة قضايا العصر وبناء الوعي الجمعي.",
+    excerpt:
+      "ندوة فكرية تناقش حضور القيم القرآنية في معالجة قضايا العصر وبناء الوعي الجمعي.",
     body: longBody("قراءات معاصرة"),
     image: newsQuran,
     category: "quran",
@@ -134,7 +173,8 @@ export const articles: Article[] = [
   {
     slug: "press-field-report",
     title: "تقرير صحفي ميداني: شهادات حية من قلب الحدث",
-    excerpt: "مراسلو المحور برس ينقلون شهادات حية ومشاهدات ميدانية من مواقع الأحداث.",
+    excerpt:
+      "مراسلو المحور برس ينقلون شهادات حية ومشاهدات ميدانية من مواقع الأحداث.",
     body: longBody("تقرير ميداني"),
     image: newsPress,
     category: "press",
@@ -145,7 +185,8 @@ export const articles: Article[] = [
   {
     slug: "tv-program-launch",
     title: "إطلاق برنامج حواري جديد يناقش القضايا الكبرى للأمة",
-    excerpt: "البرنامج الحواري الجديد يستضيف نخبة من المفكرين والسياسيين لمناقشة القضايا الراهنة.",
+    excerpt:
+      "البرنامج الحواري الجديد يستضيف نخبة من المفكرين والسياسيين لمناقشة القضايا الراهنة.",
     body: longBody("برنامج حواري"),
     image: newsStudio,
     category: "programs",
@@ -156,7 +197,8 @@ export const articles: Article[] = [
   {
     slug: "resistance-update",
     title: "آخر تطورات المشهد المقاوم في المنطقة وتداعياته",
-    excerpt: "متابعة شاملة لآخر التطورات الميدانية والسياسية على صعيد ملفات المقاومة في المنطقة.",
+    excerpt:
+      "متابعة شاملة لآخر التطورات الميدانية والسياسية على صعيد ملفات المقاومة في المنطقة.",
     body: longBody("التطورات المقاومة"),
     image: newsResistance,
     category: "resistance",
@@ -167,7 +209,8 @@ export const articles: Article[] = [
   {
     slug: "social-media-trends",
     title: "اتجاهات السوشيال ميديا: كيف تُصاغ الرواية في الفضاء الرقمي؟",
-    excerpt: "قراءة في أبرز الاتجاهات الرقمية وتأثيرها على تشكيل الرأي العام في المنطقة.",
+    excerpt:
+      "قراءة في أبرز الاتجاهات الرقمية وتأثيرها على تشكيل الرأي العام في المنطقة.",
     body: longBody("اتجاهات رقمية"),
     image: newsSocial,
     category: "social",
@@ -178,7 +221,8 @@ export const articles: Article[] = [
   {
     slug: "infographic-yearly-stats",
     title: "إنفوجرافيك: حصاد العام في أرقام ومؤشرات",
-    excerpt: "ملخص بصري شامل لأبرز الأحداث والمؤشرات خلال العام المنصرم في مادة إنفوجرافيك متكاملة.",
+    excerpt:
+      "ملخص بصري شامل لأبرز الأحداث والمؤشرات خلال العام المنصرم في مادة إنفوجرافيك متكاملة.",
     body: longBody("إنفوجرافيك"),
     image: newsMultimedia,
     category: "multimedia",
@@ -189,7 +233,8 @@ export const articles: Article[] = [
   {
     slug: "economic-outlook",
     title: "خبراء: مؤشرات اقتصادية إيجابية رغم التحديات الإقليمية",
-    excerpt: "تقرير اقتصادي يرصد المؤشرات الإيجابية في الأسواق الإقليمية ويستشرف الفترة المقبلة.",
+    excerpt:
+      "تقرير اقتصادي يرصد المؤشرات الإيجابية في الأسواق الإقليمية ويستشرف الفترة المقبلة.",
     body: longBody("الاقتصاد"),
     image: newsPress,
     category: "news",
@@ -200,7 +245,8 @@ export const articles: Article[] = [
   {
     slug: "diplomatic-meeting",
     title: "لقاءات دبلوماسية مكثفة على هامش الاجتماعات الدولية",
-    excerpt: "كواليس الاجتماعات الدبلوماسية وما تكشفه من توجهات للمرحلة المقبلة.",
+    excerpt:
+      "كواليس الاجتماعات الدبلوماسية وما تكشفه من توجهات للمرحلة المقبلة.",
     body: longBody("الدبلوماسية"),
     image: newsConference,
     category: "news",
@@ -211,7 +257,8 @@ export const articles: Article[] = [
   {
     slug: "documentary-launch",
     title: "فيلم وثائقي جديد يوثّق محطات بارزة من تاريخ المنطقة",
-    excerpt: "إنتاج وثائقي ضخم يستعرض المحطات الفارقة في تاريخ المنطقة عبر شهادات نادرة.",
+    excerpt:
+      "إنتاج وثائقي ضخم يستعرض المحطات الفارقة في تاريخ المنطقة عبر شهادات نادرة.",
     body: longBody("وثائقي"),
     image: newsMultimedia,
     category: "multimedia",
@@ -230,11 +277,14 @@ export const breakingNews: string[] = [
   "إطلاق البرنامج الحواري الجديد مساء اليوم على شاشة المحور",
 ];
 
-export const getCategory = (slug: string) => categories.find((c) => c.slug === slug);
-export const getArticle = (slug: string) => articles.find((a) => a.slug === slug);
+export const getCategory = (slug: string) =>
+  categories.find((c) => c.slug === slug);
+export const getArticle = (slug: string) =>
+  articles.find((a) => a.slug === slug);
 export const getArticlesByCategory = (slug: CategorySlug) =>
   articles.filter((a) => a.category === slug);
-export const getFeatured = () => articles.find((a) => a.featured) ?? articles[0];
+export const getFeatured = () =>
+  articles.find((a) => a.featured) ?? articles[0];
 export const getLatest = (limit = 6) =>
   [...articles].sort((a, b) => b.date.localeCompare(a.date)).slice(0, limit);
 
